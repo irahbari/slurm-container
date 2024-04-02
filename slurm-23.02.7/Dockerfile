@@ -1,6 +1,6 @@
 FROM --platform=linux/amd64 opensuse/leap:15.4
 
-ARG SLURM_VERSION=23.02.6
+ARG SLURM_VERSION=23.02.7
 ARG SLURM_ROOT=/opt/slurm-${SLURM_VERSION}
 ARG SLURM_CONFDIR=${SLURM_ROOT}/etc
 
@@ -63,3 +63,4 @@ ENTRYPOINT ["./entrypoint.sh"]
 CMD ["bash"]
 
 #COPY run_slurm_examples example.job mpi_example.job plugin.cpp mpi_hello.c .
+
