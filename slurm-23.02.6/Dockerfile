@@ -1,8 +1,8 @@
-FROM --platform=linux/amd64 opensuse/leap:15.4
+FROM opensuse/leap:15.4
 
 ARG SLURM_VERSION=23.02.6
-ARG SLURM_ROOT=/opt/slurm-${SLURM_VERSION}
-ARG SLURM_CONFDIR=${SLURM_ROOT}/etc
+ARG SLURM_ROOT=/usr
+ARG SLURM_CONFDIR=/etc/slurm
 
 ENV SLURM_VERSION   ${SLURM_VERSION}
 ENV SLURM_ROOT      ${SLURM_ROOT}
@@ -33,7 +33,6 @@ RUN zypper install -y       \
     tar                     \
     bzip2                   \
     python3                 \
-    vim                     \
     ca-certificates         \
     less                    \
     sudo
