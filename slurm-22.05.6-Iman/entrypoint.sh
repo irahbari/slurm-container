@@ -5,6 +5,16 @@ sudo -u munge munged
 
 # Iman
 /usr/sbin/sshd
+echo "Verifying user accounts..."
+for i in {1..10}; do
+    if id "user$i" &>/dev/null; then
+        echo "user$i exists"
+    else
+        echo "user$i does not exist. Creating..."
+        useradd -m "user$i"
+        echo "user$i:password" | chpasswd
+    fi
+done
 # Iman-end
 
 . /usr/lib64/mpi/gcc/mpich/bin/mpivars.sh
